@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gizlilik Politikasi - Vakit : Ezan & Namaz</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.7;
+      color: #1a1a2e;
+      background: #f8f9fa;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #6c757d;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #f0f0f5;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 12px;
+      color: #444;
+    }
+
+    ul {
+      margin: 8px 0 16px 24px;
+      color: #444;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    strong {
+      color: #1a1a2e;
+    }
+
+    a {
+      color: #1565C0;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .highlight {
+      background: #f0f7ff;
+      border-left: 4px solid #1565C0;
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px solid #f0f0f5;
+      font-size: 13px;
+      color: #999;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 12px;
+      }
+
+      .container {
+        padding: 24px 18px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      h2 {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Gizlilik Politikasi</h1>
+    <p class="subtitle">Vakit : Ezan &amp; Namaz &mdash; Son guncelleme: 17 Subat 2026</p>
+
+    <p>
+      Bu gizlilik politikasi, <strong>Vakit : Ezan &amp; Namaz</strong> mobil uygulamasinin
+      ("Uygulama") kullanici verilerini nasil topladigi, kullandigi ve korudugu hakkinda
+      sizi bilgilendirmek amaciyla hazirlanmistir.
+    </p>
+
+    <div class="highlight">
+      <strong>Ozet:</strong> Uygulamamiz cevrimdisi (offline) oncelikli olarak calisir. Namaz vakitleri ve dua verileri
+      cihaziniza gomulu olarak gelir; kisisel bilgileriniz sunucularimiza gonderilmez. Konum verisi yalnizca
+      size en yakin sehri bulmak icin kullanilir ve hicbir yere iletilmez.
+    </div>
+
+    <!-- ============================================ -->
+    <h2>1. Toplanan Veriler</h2>
+
+    <h3>1.1 Konum Verisi</h3>
+    <p>
+      Uygulama, size en yakin sehir ve ilce namaz vakitlerini gosterebilmek icin cihazinizin
+      GPS konumuna erisim izni isteyebilir. Bu konum verisi:
+    </p>
+    <ul>
+      <li>Yalnizca cihaz uzerinde, yerel olarak islenir.</li>
+      <li>Hicbir sunucuya, ucuncu tarafa veya bulut hizmetine gonderilmez.</li>
+      <li>Yalnizca en yakin sehri tespit etmek icin tek seferlik kullanilir.</li>
+      <li>Konum izni vermek istegebilir; bu durumda sehrinizi elle secebilirsiniz.</li>
+    </ul>
+
+    <h3>1.2 Yerel Olarak Saklanan Veriler</h3>
+    <p>
+      Asagidaki veriler yalnizca cihazinizdaki yerel depolamada (AsyncStorage) tutulur ve
+      hicbir sunucuya iletilmez:
+    </p>
+    <ul>
+      <li>Secilen sehir ve ilce tercihi</li>
+      <li>Bildirim ayarlari ve tercihleri</li>
+      <li>Tema tercihi (karanlik/aydin)</li>
+      <li>Namaz takip kayitlari ve isi haritasi verileri</li>
+      <li>Kaza namazi takip verileri</li>
+      <li>Ramazan oruc takip verileri</li>
+      <li>Tesbih sayaci verileri</li>
+      <li>Favori dua listesi</li>
+      <li>Uygulama acma serisi (streak) bilgisi</li>
+    </ul>
+
+    <h3>1.3 Otomatik Olarak Toplanan Veriler</h3>
+    <p>
+      Uygulamamiz dogrudan kisisel veri toplamaz. Ancak kullandigimiz ucuncu taraf hizmetleri,
+      kendi gizlilik politikalari cercevesinde bazi teknik verileri toplayabilir (bkz. Bolum 3).
+    </p>
+
+    <!-- ============================================ -->
+    <h2>2. Verilerin Kullanim Amaci</h2>
+    <p>Toplanan ve yerel olarak saklanan veriler asagidaki amaclarla kullanilir:</p>
+    <ul>
+      <li>Bulundugunuz konuma gore dogru namaz vakitlerini gostermek</li>
+      <li>Namaz vakti hatirlatma bildirimleri gondermek</li>
+      <li>Namaz, oruc ve kaza takibi ozelliklerini saglamak</li>
+      <li>Kible yonunu hesaplamak</li>
+      <li>Uygulama tercihlerinizi hatirlamak</li>
+      <li>Reklam gostermek (ucretsiz surum)</li>
+    </ul>
+
+    <!-- ============================================ -->
+    <h2>3. Ucuncu Taraf Hizmetleri</h2>
+    <p>Uygulama asagidaki ucuncu taraf hizmetlerini kullanmaktadir:</p>
+
+    <h3>3.1 Google AdMob</h3>
+    <p>
+      Ucretsiz surumde reklam gostermek icin Google AdMob kullanilmaktadir. AdMob,
+      reklam kisisellestirme ve olcumleme amaciyla cihaz tanimlayicilari ve kullanim
+      verilerini toplayabilir.
+    </p>
+    <p>
+      Google Gizlilik Politikasi:
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>
+    </p>
+
+    <h3>3.2 Firebase (Google)</h3>
+    <p>
+      Uygulama, zorunlu guncelleme kontrolu icin Firebase Firestore hizmetini kullanmaktadir.
+      Bu kapsamda Firebase, temel cihaz bilgilerini ve uygulama kullanim istatistiklerini
+      toplayabilir.
+    </p>
+    <p>
+      Firebase Gizlilik Politikasi:
+      <a href="https://firebase.google.com/support/privacy" target="_blank"
+        rel="noopener">firebase.google.com/support/privacy</a>
+    </p>
+
+    <h3>3.3 RevenueCat</h3>
+    <p>
+      Premium abonelik yonetimi icin RevenueCat kullanilmaktadir. RevenueCat, satin alma
+      islemlerini yonetmek icin anonim kullanici tanimlayicilari ve satin alma verilerini
+      isleyebilir.
+    </p>
+    <p>
+      RevenueCat Gizlilik Politikasi:
+      <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a>
+    </p>
+
+    <!-- ============================================ -->
+    <h2>4. Veri Paylasimi</h2>
+    <p>
+      Kisisel verilerinizi hicbir ucuncu tarafla satmiyoruz, kiralamiyoruz veya takas etmiyoruz.
+      Verileriniz yalnizca yukarida belirtilen ucuncu taraf hizmet saglayicilari tarafindan,
+      kendi gizlilik politikalari cercevesinde islenebilir.
+    </p>
+
+    <!-- ============================================ -->
+    <h2>5. Veri Guvenligi</h2>
+    <p>
+      Uygulama verileri cihazinizin yerel deposunda saklanir ve isletim sisteminizin
+      guvenlik mekanizmalariyla korunur. Internet uzerinden kisisel veri iletimi
+      yapilmamaktadir. Ancak hicbir elektronik depolama yontemi %100 guvenli degildir.
+    </p>
+
+    <!-- ============================================ -->
+    <h2>6. Veri Saklama ve Silme</h2>
+    <p>
+      Yerel verileriniz, uygulamayi cihazinizdan kaldirdiginizda otomatik olarak silinir.
+      Ayrica uygulama icerisindeki ayarlardan verilerinizi sifirlayabilirsiniz.
+      Ucuncu taraf hizmetleri tarafindan toplanan veriler icin ilgili hizmetin gizlilik
+      politikasina basvurmaniz gerekmektedir.
+    </p>
+
+    <!-- ============================================ -->
+    <h2>7. Cocuklarin Gizliligi</h2>
+    <p>
+      Uygulamamiz 13 yasin altindaki cocuklardan bilerek kisisel veri toplamamaktadir.
+      Uygulamanin herhangi bir bolumunde cocuklardan kisisel bilgi talep edilmemektedir.
+      Bir ebeveyn veya vasi olarak cocugunuzun kisisel veri sagladigini fark ederseniz,
+      lutfen bizimle iletisime gecin.
+    </p>
+
+    <!-- ============================================ -->
+    <h2>8. Izinler</h2>
+    <p>Uygulama asagidaki cihaz izinlerini talep edebilir:</p>
+    <ul>
+      <li><strong>Konum (istebagli):</strong> En yakin sehri otomatik olarak tespit etmek icin.</li>
+      <li><strong>Bildirimler:</strong> Namaz vakti ve gunluk hatirlatma bildirimleri gondermek icin.</li>
+      <li><strong>Internet:</strong> Reklam gosterimi, zorunlu guncelleme kontrolu ve abonelik dogrulamasi icin.</li>
+    </ul>
+
+    <!-- ============================================ -->
+    <h2>9. Degisiklikler</h2>
+    <p>
+      Bu gizlilik politikasi zaman zaman guncellenebilir. Degisiklikler bu sayfada
+      yayinlanacak ve "Son guncelleme" tarihi revize edilecektir. Onemli degisikliklerde
+      uygulama icinden bildirim gonderilecektir.
+    </p>
+
+    <!-- ============================================ -->
+    <h2>10. Iletisim</h2>
+    <p>
+      Bu gizlilik politikasiyla ilgili sorulariniz veya talepleriniz icin asagidaki
+      iletisim bilgilerinden bize ulasabilirsiniz:
+    </p>
+    <ul>
+      <li><strong>E-posta:</strong> maotunko@gmail.com</li>
+    </ul>
+
+    <div class="footer">
+      &copy; 2026 Vakit : Ezan &amp; Namaz. Tum haklari saklidir.
+    </div>
+  </div>
+</body>
+
+</html>
