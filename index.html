@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vakit : Ezan & Namaz - İslami Hayatınızın Dijital Rehberi</title>
+  <meta name="description" content="Offline namaz vakitleri, günlük ayetler, qibla pusulası, tesbih, dua kütüphanesi ve daha fazlası. İslami hayatınız için tüm ihtiyaçlarınız tek uygulamada.">
+  <meta name="keywords" content="namaz vakitleri, ezan saati, qibla, tesbih, dua, İslami uygulama">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #0D9488;
+      --primary-dark: #0F766E;
+      --secondary: #14B8A6;
+      --accent: #F59E0B;
+      --text-dark: #1F2937;
+      --text-gray: #6B7280;
+      --bg-light: #F9FAFB;
+      --white: #FFFFFF;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0D9488 0%, #14B8A6 50%, #0F766E 100%);
+      color: var(--white);
+      padding: 80px 20px 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.1;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .app-icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 24px;
+      background: var(--white);
+      border-radius: 28px;
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+    }
+
+    .app-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      opacity: 0.95;
+      margin-bottom: 32px;
+      font-weight: 500;
+    }
+
+    .download-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .store-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 28px;
+      background: var(--white);
+      color: var(--text-dark);
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .store-button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .store-icon {
+      font-size: 32px;
+    }
+
+    .store-text {
+      text-align: left;
+    }
+
+    .store-text small {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      opacity: 0.7;
+    }
+
+    .store-text strong {
+      font-size: 16px;
+      display: block;
+    }
+
+    /* Stats Section */
+    .stats {
+      background: var(--white);
+      padding: 40px 20px;
+      margin-top: -40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stats-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--text-gray);
+      font-weight: 500;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 80px 20px;
+      background: var(--bg-light);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--text-dark);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: var(--text-gray);
+      margin-bottom: 60px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .features-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text-dark);
+    }
+
+    .feature-description {
+      font-size: 15px;
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+
+    /* Screenshots Section */
+    .screenshots {
+      padding: 80px 20px;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .screenshots-slider {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      padding: 20px 0;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .screenshot-item {
+      flex: 0 0 300px;
+      scroll-snap-align: center;
+    }
+
+    .screenshot-frame {
+      width: 100%;
+      aspect-ratio: 9/19.5;
+      background: linear-gradient(135deg, var(--bg-light), #E5E7EB);
+      border-radius: 32px;
+      box-shadow: var(--shadow-xl);
+      border: 8px solid var(--text-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .screenshot-notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 24px;
+      background: var(--text-dark);
+      border-radius: 0 0 16px 16px;
+    }
+
+    /* CTA Section */
+    .cta {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: var(--white);
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      font-size: 18px;
+      opacity: 0.95;
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text-dark);
+      color: var(--white);
+      padding: 60px 20px 30px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      display: block;
+      padding: 8px 0;
+      transition: color 0.2s;
+    }
+
+    .footer-section a:hover {
+      color: var(--secondary);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 36px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .download-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .store-button {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .screenshots-slider {
+        justify-content: flex-start;
+        padding-left: 20px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-content {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .feature-card {
+      animation: fadeInUp 0.8s ease-out;
+      animation-fill-mode: both;
+    }
+
+    .feature-card:nth-child(1) { animation-delay: 0.1s; }
+    .feature-card:nth-child(2) { animation-delay: 0.2s; }
+    .feature-card:nth-child(3) { animation-delay: 0.3s; }
+    .feature-card:nth-child(4) { animation-delay: 0.4s; }
+    .feature-card:nth-child(5) { animation-delay: 0.5s; }
+    .feature-card:nth-child(6) { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="app-icon">
+        <img src="assets/images/app-icon.png" alt="Vakit App Icon">
+      </div>
+      <h1>Vakit : Ezan & Namaz</h1>
+      <p class="hero-subtitle">İslami hayatınızın dijital rehberi. Namaz vakitleri, günlük ayetler, qibla pusulası ve daha fazlası - Tamamen çevrimdışı!</p>
+
+      <div class="download-buttons">
+        <a href="https://apps.apple.com/YOUR_APP_LINK" class="store-button" target="_blank" rel="noopener">
+          <span class="store-icon">🍎</span>
+          <div class="store-text">
+            <small>Şimdi İndir</small>
+            <strong>App Store</strong>
+          </div>
+        </a>
+        <a href="https://play.google.com/store/apps/YOUR_APP_LINK" class="store-button" target="_blank" rel="noopener">
+          <span class="store-icon">📱</span>
+          <div class="store-text">
+            <small>Şimdi İndir</small>
+            <strong>Google Play</strong>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="stats-container">
+      <div class="stat-item">
+        <span class="stat-number">869</span>
+        <span class="stat-label">İlçe Desteği</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">76</span>
+        <span class="stat-label">Dua & Zikirler</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Çevrimdışı Çalışır</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">366</span>
+        <span class="stat-label">Günlük Ayet</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <h2 class="section-title">Öne Çıkan Özellikler</h2>
+    <p class="section-subtitle">İslami hayatınız için ihtiyacınız olan her şey, şık ve kullanımı kolay bir arayüzde</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🕌</div>
+        <h3 class="feature-title">Namaz Vakitleri</h3>
+        <p class="feature-description">869 ilçe için hassas namaz vakitleri. İnternet bağlantısı olmadan çalışır.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📖</div>
+        <h3 class="feature-title">Günlük Ayetler</h3>
+        <p class="feature-description">Her gün yeni bir ayet veya hadis. Türkçe meal ve açıklamalar ile.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🧭</div>
+        <h3 class="feature-title">Kıble Pusulası</h3>
+        <p class="feature-description">Nerede olursanız olun Kıble yönünü hassas şekilde bulun. Görsel pusula ile kolay kullanım.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📿</div>
+        <h3 class="feature-title">Dijital Tesbih</h3>
+        <p class="feature-description">Zikirlerinizi sayın, hedef belirleyin, ilerlemenizi takip edin. Titreşim desteği ile.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📚</div>
+        <h3 class="feature-title">Dua Kütüphanesi</h3>
+        <p class="feature-description">76 Kur'an-ı Kerim ayeti ve Hadis-i Şerif. Kategorilere ayrılmış, arama ve favori desteği.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3 class="feature-title">Namaz Takibi</h3>
+        <p class="feature-description">Günlük namaz kaydı, 90 günlük ısı haritası, istatistikler ve kaza namazı takibi.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔔</div>
+        <h3 class="feature-title">Akıllı Bildirimler</h3>
+        <p class="feature-description">Namaz vakitlerinde, günlük ayetlerde ve Cuma günlerine özel hatırlatmalar.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3 class="feature-title">Widget Desteği</h3>
+        <p class="feature-description">Ana ekranınızda namaz vakitlerini gösterin. iOS ve Android widget desteği.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔥</div>
+        <h3 class="feature-title">Streak Sistemi</h3>
+        <p class="feature-description">Günlük kullanım serilerinizi takip edin, motivasyonunuzu yüksek tutun.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🌙</div>
+        <h3 class="feature-title">Ramazan Takibi</h3>
+        <p class="feature-description">Ramazan ayında oruç tutma takibi, imsak ve iftar vakitleri bildirimleri.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">✨</div>
+        <h3 class="feature-title">Cuma Özel İçerik</h3>
+        <p class="feature-description">Cuma günlerine özel ayetler, bildirimler ve haftalık özet raporları.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <h3 class="feature-title">Modern Tasarım</h3>
+        <p class="feature-description">Şık, sade ve kullanımı kolay arayüz. Karanlık mod desteği yakında!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots Section -->
+  <section class="screenshots">
+    <h2 class="section-title">Uygulamadan Görüntüler</h2>
+    <p class="section-subtitle">Modern ve kullanımı kolay arayüzümüzü keşfedin</p>
+
+    <div class="screenshots-slider">
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <div class="screenshot-notch"></div>
+          <!-- Screenshot 1 will be added here -->
+        </div>
+      </div>
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <div class="screenshot-notch"></div>
+          <!-- Screenshot 2 will be added here -->
+        </div>
+      </div>
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <div class="screenshot-notch"></div>
+          <!-- Screenshot 3 will be added here -->
+        </div>
+      </div>
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <div class="screenshot-notch"></div>
+          <!-- Screenshot 4 will be added here -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <h2>İslami Hayatınızı Dijitalleştirin</h2>
+    <p>Bugün indirin ve namaz vakitlerini, günlük ayetleri ve daha fazlasını elinizin altında bulundurun. Tamamen ücretsiz!</p>
+
+    <div class="download-buttons">
+      <a href="https://apps.apple.com/YOUR_APP_LINK" class="store-button" target="_blank" rel="noopener">
+        <span class="store-icon">🍎</span>
+        <div class="store-text">
+          <small>Şimdi İndir</small>
+          <strong>App Store</strong>
+        </div>
+      </a>
+      <a href="https://play.google.com/store/apps/YOUR_APP_LINK" class="store-button" target="_blank" rel="noopener">
+        <span class="store-icon">📱</span>
+        <div class="store-text">
+          <small>Şimdi İndir</small>
+          <strong>Google Play</small>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Vakit : Ezan & Namaz</h3>
+        <p style="opacity: 0.8; margin-top: 8px;">İslami hayatınızın dijital rehberi. Namaz vakitleri, ayetler ve daha fazlası.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Uygulama</h3>
+        <ul>
+          <li><a href="#features">Özellikler</a></li>
+          <li><a href="#screenshots">Ekran Görüntüleri</a></li>
+          <li><a href="#">Sürüm Notları</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Yasal</h3>
+        <ul>
+          <li><a href="privacy-policy.html">Gizlilik Politikası</a></li>
+          <li><a href="#">Kullanım Şartları</a></li>
+          <li><a href="#">KVKK</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>İletişim</h3>
+        <ul>
+          <li><a href="mailto:support@vakit.app">Destek</a></li>
+          <li><a href="#">Geri Bildirim</a></li>
+          <li><a href="#">Sosyal Medya</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Vakit : Ezan & Namaz. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+</body>
+</html>
